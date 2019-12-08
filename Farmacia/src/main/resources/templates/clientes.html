@@ -92,7 +92,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#pablo">Farmacia</a>
+            <a class="navbar-brand" href="#pablo"></a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -151,8 +151,8 @@
                         <td th:text="${e.Direccion}">{DIRECCION}</td>
                         <td>
                         <!-- /editar/1 -->
-                         <a th:href="@{'/editar/'+${e.id}}" class="btn btn-info">Editar</a>
-                         <a th:href="@{'/eliminar/'+${e.id}}" class="btn btn-info">Eliminar</a>
+                         <a th:href="@{'/editarcliente/'+${e.id}}" class="btn btn-info">Editar</a>
+                         <a th:href="@{'/eliminarcliente/'+${e.id}}" class="btn btn-info">Eliminar</a>
                         </td>
                       </tr>
                     </tbody>

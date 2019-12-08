@@ -92,6 +92,10 @@ public class Proveedor {
 		Fax = fax;
 	}
 
+	public Proveedor() {
+		
+	}
+
 	
 	
 }

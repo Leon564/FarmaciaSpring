@@ -39,13 +39,13 @@ public class ClienteController {
 		// Ruta post /editar
 		
 		@PostMapping("/actualizarcliente")
-		public String actualizar( 
+		public String actualizarcliente( 
 				@Valid @ModelAttribute("Cliente")Cliente cliente,
 				BindingResult result ) {
 			
 			Repo.save(cliente);
 			
-			return "redirect:/";
+			return "redirect:/clientes";
 			
 			
 		}
@@ -77,4 +77,15 @@ public class ClienteController {
 		
 		
 	}
+	
+	// Ruta get /eliminar/{id}
+		@GetMapping("/eliminarcliente/{id}")
+		public String eliminarcliente(@PathVariable("id")int id) {
+			Repo.deleteById(id);
+			return "redirect:/clientes";
+		}
+		
+		
+		
+		
 }
