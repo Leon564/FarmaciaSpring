@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.happypet.Farmacia.entidades.Cliente;
@@ -45,4 +46,34 @@ public class MedicamentoController {
 			
 			
 		}
+		
+		// Ruta get /editarmedicamento/{id}
+				@GetMapping("/editarmedicamento/{id}")
+				public String editar(@PathVariable("id")int id,Model model) {
+					model.addAttribute("Medicamento", Repo.findById(id));
+					return "editarmedicamento";
+				}
+				
+				
+				// Ruta post /editar
+				
+				@PostMapping("/actualizarmedicamento")
+				public String actualizarcliente( 
+						@Valid @ModelAttribute("Medicamento")Medicamento medicamento,
+						BindingResult result ) {
+					
+					Repo.save(medicamento);
+					
+					return "redirect:/medicamentos";
+					
+					
+				}
+				
+				// Ruta get /eliminar/{id}
+				@GetMapping("/eliminarmedicamento/{id}")
+				public String eliminarmedicamento(@PathVariable("id")int id) {
+					Repo.deleteById(id);
+					return "redirect:/medicamentos";
+				}
+				
 }
