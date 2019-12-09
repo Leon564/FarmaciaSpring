@@ -20,14 +20,18 @@ public class Medicamento {
 	
 	@NotEmpty
 	@Column
-	private String Medicamento;
+	private String NombreMedicamento;
 	
-	@NotEmpty
+	
 	@Column
-	private Date FechaAdquisicion;
-	@NotEmpty
+	private String FechaAdquisicion;
+	
 	@Column
-	private Date FechaVencimiento;
+	private String FechaVencimiento;
+	
+	
+	@Column
+	private int Cantidad;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idProveedor")
@@ -35,54 +39,76 @@ public class Medicamento {
 	
 	@Column
 	private double precio;
-	
-	public String getMedicamento() {
-		return Medicamento;
-	}
-	public void setMedicamento(String medicamento) {
-		Medicamento = medicamento;
-	}
-	public Date getFechaAdquisicion() {
-		return FechaAdquisicion;
-	}
-	public void setFechaAdquisicion(Date fechaAdquisicion) {
-		FechaAdquisicion = fechaAdquisicion;
-	}
-	public Date getFechaVencimiento() {
-		return FechaVencimiento;
-	}
-	public void setFechaVencimiento(Date fechaVencimiento) {
-		FechaVencimiento = fechaVencimiento;
-	}
+
 	public int getId() {
 		return Id;
 	}
+
 	public void setId(int id) {
 		Id = id;
 	}
-	
-	
+
+	public String getNombreMedicamento() {
+		return NombreMedicamento;
+	}
+
+	public void setNombreMedicamento(String nombreMedicamento) {
+		NombreMedicamento = nombreMedicamento;
+	}
+
+	public String getFechaAdquisicion() {
+		return FechaAdquisicion;
+	}
+
+	public void setFechaAdquisicion(String fechaAdquisicion) {
+		FechaAdquisicion = fechaAdquisicion;
+	}
+
+	public String getFechaVencimiento() {
+		return FechaVencimiento;
+	}
+
+	public void setFechaVencimiento(String fechaVencimiento) {
+		FechaVencimiento = fechaVencimiento;
+	}
+
+	public int getCantidad() {
+		return Cantidad;
+	}
+
+	public void setCantidad(int cantidad) {
+		Cantidad = cantidad;
+	}
+
 	public Proveedor getProveedor() {
 		return proveedor;
 	}
+
 	public void setProveedor(Proveedor proveedor) {
 		this.proveedor = proveedor;
 	}
-	public Medicamento(String medicamento,  Date fechaAdquisicion,  Date fechaVencimiento, double precio) {
-		
-		Medicamento = medicamento;
-		FechaAdquisicion = fechaAdquisicion;
-		FechaVencimiento = fechaVencimiento;
-		this.precio = precio;
-	}
-	public Medicamento() {
-		
-	}
+
 	public double getPrecio() {
 		return precio;
 	}
+
 	public void setPrecio(double precio) {
 		this.precio = precio;
+	}
+
+	public Medicamento(@NotEmpty String nombreMedicamento, String fechaAdquisicion, String fechaVencimiento,
+			int cantidad, Proveedor proveedor, double precio) {
+		
+		NombreMedicamento = nombreMedicamento;
+		FechaAdquisicion = fechaAdquisicion;
+		FechaVencimiento = fechaVencimiento;
+		Cantidad = cantidad;
+		this.proveedor = proveedor;
+		this.precio = precio;
+	}
+
+	public Medicamento() {
+		
 	}
 	
 	
