@@ -50,7 +50,7 @@ public class ProveedorController {
 			
 			Repo.save(proveedor);
 			
-			return "redirect:/";
+			return "redirect:/proveedores";
 			
 			
 		}
