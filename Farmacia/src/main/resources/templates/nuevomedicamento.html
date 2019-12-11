@@ -75,7 +75,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="#pablo">Farmacia</a>
+            <a class="navbar-brand" href="#pablo"></a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -112,20 +112,20 @@
                       <div class="col-md-6">
                         <div class="form-group">
                           <label class="bmd-label-floating">Fecha de adquisicion</label>
-                          <input type="Date" name="FechaAdquisicion" class="form-control">
+                          <input type="Date" value="2019-12-11" name="FechaAdquisicion" class="form-control">
                         </div>
                       </div>
                       </div>
                         <div class="row">
-                      <div class="col-md-6">
+                      <div class="col-md-12">
                         <div class="form-group">
                           <label class="bmd-label-floating">Fecha de vencimiento</label>
-                          <input type="Date" name="FechaVencimiento" class="form-control">
+                          <input type="Date" value="2019-12-11" name="FechaVencimiento" class="form-control">
                         </div>
                       </div>
                       </div>
                         <div class="row">
-                      <div class="col-md-6">
+                      <div class="col-md-12">
                         <div class="form-group">
                           <label class="bmd-label-floating">Precio</label>
                           <input type="text" name="precio" class="form-control">
@@ -133,24 +133,25 @@
                       </div>
                       </div>
                         <div class="row">
-                      <div class="col-md-6">
+                      <div class="col-md-12">
                         <div class="form-group">
                           <label class="bmd-label-floating">Cantidad</label>
                           <input type="text" name="Cantidad" value="2" class="form-control">
                         </div>
                       </div>
                       </div>
-                      <div class="col-md-6">
+                      <div class="row">
+                      <div class="col-md-12">
                         <div class="form-group">
                           <label class="bmd-label-floating">Proveedor</label>
                           
-                          <select name="proveedor" class="form-control">
-                          <option value="1">prov1</option>
-                          <option value="2">prov2</option>
+                          <select name="proveedor"  class="form-control">
+                          <option th:each="e:${proveedores}" th:value="${e.Id}" th:text="${e.Nombre}"></option>
+                          
                           </select>
                         </div>
                       </div>
-                   
+                   </div>
                    
                     
                     

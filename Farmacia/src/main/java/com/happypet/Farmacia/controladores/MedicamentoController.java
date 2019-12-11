@@ -15,6 +15,7 @@ import com.happypet.Farmacia.entidades.Cliente;
 import com.happypet.Farmacia.entidades.Medicamento;
 import com.happypet.Farmacia.entidades.Proveedor;
 import com.happypet.Farmacia.repositorio.RepoMedicamento;
+import com.happypet.Farmacia.repositorio.RepoProveedor;
 
 @Controller
 public class MedicamentoController {
@@ -22,6 +23,9 @@ public class MedicamentoController {
 	@Autowired
 	RepoMedicamento Repo;
 	
+	
+	@Autowired
+	RepoProveedor Repoproveedor;
 	
 	@GetMapping("/medicamentos")
 	public String Medicamentos(Model model) {
@@ -31,7 +35,8 @@ public class MedicamentoController {
 	}
 	//maping nuevo.html
 		@GetMapping("/nuevomedicamento")
-		public String nuevo() {
+		public String nuevo(Model model) {
+			model.addAttribute("proveedores", Repoproveedor.findAll());
 			return "nuevomedicamento";
 		}
 		// Ruta post / registrar
